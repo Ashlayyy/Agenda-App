@@ -1,0 +1,11 @@
+@use './abstracts/mixins';
+@use './abstracts/colors';
+
+body{
+    background: colors.$backgroundColor;
+    min-height: 100vh;
+    @include mixins.flexCenter;
+    padding: 4rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+}

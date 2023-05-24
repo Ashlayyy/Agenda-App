@@ -1,0 +1,83 @@
+@use '../../abstracts/mixins';
+@use '../../abstracts/colors';
+
+.agenda {
+    width: 30rem;
+    aspect-ratio: 1/1;
+    background: colors.$agendaBackground;
+    border-radius: 2rem;
+    color: colors.$agendaColor;
+    align-items: center;
+    position: fixed;
+    right: 4rem;
+    bottom: 3.4rem;
+    box-shadow: 0 2rem 1rem 0 colors.$agendaBoxShadow;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transition: 0.4s;
+        transform: scale(1.02);
+    }
+
+    &__header {
+        background: colors.$headerBackground;
+        height: 20%;
+        border-top-right-radius: 2rem;
+        border-top-left-radius: 2rem;
+        @include mixins.flexCenter;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    h2 {
+        transition: transform 0.4s ease;
+
+        &:hover {
+            cursor: pointer;
+            color: colors.$textHover;
+            transition: 0.4s ease;
+            transform: scale(1.1);
+        }
+    }
+
+    &__button {
+        background: none;
+        border: none;
+        font-size: 150%;
+        color: white;
+
+        &:hover {
+            cursor: pointer;
+            color: colors.$button;
+            transform: scale(1.1);
+            transition: 0.4s;
+        }
+    }
+
+    &__month {
+        height: 80%;
+        padding: 2rem;
+        display: grid;
+        list-style: none;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 1rem;
+    }
+
+    &__day {
+        background: darken(colors.$dayColor, 5%);
+        @include mixins.flexCenter;
+        width: 80%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        font-size: 60%;
+        transition: transform 0.4s ease;
+        box-shadow: 0 0.3rem 0 0 colors.$agendaBoxShadow;
+
+        &:hover {
+            cursor: pointer;
+            color: darken(colors.$miniTextHover, 10%);
+            transform: scale(1.1);
+        }
+    }
+}
