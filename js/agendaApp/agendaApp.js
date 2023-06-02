@@ -24,12 +24,14 @@ class AgendaApp {
     switch (sign) {
       //Als het plus is, voeg er een maand boven op
       case "+":
-        return this.month = this.month + 1;
+        this.month = this.month + 1;
         //Als het min is ga er eentje naar beneden
+        break;
       case "-":
-        return this.month = this.month - 1;
-      //Ik gebruik hier ook geen break statements, maar returns, zodat de code kleiner is en ze eigenlijk hetzelfde werken.
+        this.month = this.month - 1;
+        break;
     }
+    console.log(this.month)
     //Zorgt ervoor dat je geen undefined krijgt wnr je aan het scrollen ben
     if (this.month === 12) {
       this.month = 0;
@@ -37,7 +39,6 @@ class AgendaApp {
     if (this.month < 0) {
       this.month = 11;
     }
-
     //Laat vervolgens de agenda via de switcher
     this.switcher.loadAgenda(this.api.dataFromAPI[this.month]);
   };
@@ -103,6 +104,7 @@ class Header {
   leftButton = undefined;
   rightButton = undefined;
   agendaApp = undefined;
+  Switcher = undefined;
 
   constructor(agenda, nameOfMonth, agendaApp) {
     //Zet alles in dit object wat we binnenkrijgen
@@ -146,7 +148,6 @@ class Button {
   htmlElement = undefined;
   innerText = undefined;
   extraClass = undefined;
-  Switcher = undefined;
   header = undefined;
   agendaApp = undefined;
   type = undefined;
@@ -171,6 +172,7 @@ class Button {
   }
 
   buttonClicked = () => {
+    console.log(this)
     //Kijkt welke knmop was gedrukt, op basis daarvan doet hij dingen
     if (this.type === "previous") {
       return this.agendaApp.switchMonths("-");
@@ -233,7 +235,7 @@ class Month {
 
 class Day {
   //Maakt alle properties aan die hij gebruikt
-  month= undefined;
+  month = undefined;
   htmlElement = undefined;
   dayNumber = undefined;
 

@@ -13,10 +13,13 @@ class AgendaApp {
     switchMonths = (sign) => {
         switch (sign) {
             case "+":
-                return this.month = this.month + 1;
+                this.month = this.month + 1;
+                break;
             case "-":
-                return this.month = this.month - 1;
+                this.month = this.month - 1;
+                break;
         }
+        console.log(this.month)
         if (this.month === 12) {
             this.month = 0;
         }
@@ -66,6 +69,7 @@ class Header {
     leftButton = undefined;
     rightButton = undefined;
     agendaApp = undefined;
+    Switcher = undefined;
     constructor(agenda, nameOfMonth, agendaApp) {
         this.agenda = agenda;
         this.agendaApp = agendaApp;
@@ -99,7 +103,6 @@ class Button {
     htmlElement = undefined;
     innerText = undefined;
     extraClass = undefined;
-    Switcher = undefined;
     header = undefined;
     agendaApp = undefined;
     type = undefined;
@@ -117,6 +120,7 @@ class Button {
         this.htmlElement.onclick = this.buttonClicked;
     }
     buttonClicked = () => {
+        console.log(this)
         if (this.type === "previous") {
             return this.agendaApp.switchMonths("-");
         }
