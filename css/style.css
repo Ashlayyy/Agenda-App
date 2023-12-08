@@ -23,6 +23,18 @@ body {
   font-family: sans-serif;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+  padding: 5rem;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .agenda {
   width: 30rem;
   aspect-ratio: 1/1;

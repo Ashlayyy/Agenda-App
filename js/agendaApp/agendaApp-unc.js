@@ -54,7 +54,7 @@ class Agenda {
         this.htmlElement.classList.add("agenda");
         this.data = data;
         this.renderer = new Renderer();
-        this.renderer.render("body", this.htmlElement);
+        this.renderer.render("section", this.htmlElement);
         this.header = new Header(this, data.name, this.agendaApp);
         this.month = new Month(this, data.days);
     }
@@ -139,7 +139,7 @@ class Switcher {
         this.cleaner = new Cleaner();
     }
     loadAgenda = (data) => {
-        this.cleaner.clean("body");
+        this.cleaner.clean("section");
         this.agenda = new Agenda(data, this.agendaApp);
     };
 }
