@@ -32,7 +32,7 @@ class AgendaApp {
 class API {
     dataFromAPI = [];
     async getData() {
-        await fetch("../data/data.json")
+        await fetch("./data/data.json")
             .then((response) => {
                 return response.json();
             })
